@@ -9,7 +9,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # -----------------------------------------------------
 # Streamlit Page Config
 # -----------------------------------------------------
-st.set_page_config(page_title="USA Housing Linear Regression", layout="wide")
+st.set_page_config(page_title="Lotus-Gold Consulting", layout="wide")
 
 st.header('Lotus-Gold Consulting')
 st.markdown('---')
