@@ -9,14 +9,14 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # -----------------------------------------------------
 # Streamlit Page Config
 # -----------------------------------------------------
-st.set_page_config(page_title="USA Housing Linear Regression", page_icon="🏠", layout="wide")
+st.set_page_config(page_title="USA Housing Linear Regression", layout="wide")
 
 st.header('Lotus-Gold Consulting')
 st.markdown('---')
 st.image('./3.jpg')
 st.markdown('---')
 
-st.title("🏠 USA Housing Price Prediction using Linear Regression")
+st.title(" USA Housing Price Prediction using Linear Regression")
 st.write("""
 Explore the **USA Housing dataset**, train a **Linear Regression model**, 
 and make interactive predictions — all in one Streamlit app with Plotly visualizations.
@@ -25,7 +25,7 @@ and make interactive predictions — all in one Streamlit app with Plotly visual
 # -----------------------------------------------------
 # Load Dataset
 # -----------------------------------------------------
-st.subheader("📂 Load Dataset")
+st.subheader("Load Dataset")
 
 df = pd.read_csv('USA_Housing.csv')
 
@@ -35,7 +35,7 @@ with st.expander('Load Dataset'):
 # -----------------------------------------------------
 # Data Summary and Visualization
 # -----------------------------------------------------
-st.subheader("📊 Dataset Overview")
+st.subheader("Dataset Overview")
 
 col1, col2 = st.columns(2)
 
@@ -68,7 +68,7 @@ st.plotly_chart(fig_hist, use_container_width=True)
 # -----------------------------------------------------
 # Feature Selection
 # -----------------------------------------------------
-st.subheader("⚙️ Model Setup")
+st.subheader("Model Setup")
 
 all_columns = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
 
@@ -103,7 +103,7 @@ if len(x_features) > 0:
     # -----------------------------------------------------
     # Model Performance
     # -----------------------------------------------------
-    st.subheader("📈 Model Performance")
+    st.subheader("Model Performance")
 
     col1, col2, col3 = st.columns(3)
     col1.metric("Mean Absolute Error", f"{mean_absolute_error(y_test, y_pred):,.2f}")
@@ -113,7 +113,7 @@ if len(x_features) > 0:
     # -----------------------------------------------------
     # Coefficients
     # -----------------------------------------------------
-    st.subheader("🧮 Model Coefficients")
+    st.subheader("Model Coefficients")
     coef_df = pd.DataFrame({
         "Feature": x_features,
         "Coefficient": model.coef_
@@ -124,7 +124,7 @@ if len(x_features) > 0:
     # -----------------------------------------------------
     # Visualization: Actual vs Predicted
     # -----------------------------------------------------
-    st.subheader("🎨 Actual vs Predicted Prices (Interactive)")
+    st.subheader("Actual vs Predicted Prices (Interactive)")
     fig_scatter = px.scatter(
         x=y_test,
         y=y_pred,
@@ -138,7 +138,7 @@ if len(x_features) > 0:
     # -----------------------------------------------------
     # Prediction Section
     # -----------------------------------------------------
-    st.subheader("🔮 Make a New Prediction")
+    st.subheader(" Make a New Prediction")
 
     input_data = {}
     for feature in x_features:
@@ -147,10 +147,10 @@ if len(x_features) > 0:
     if st.button("Predict House Price"):
         input_df = pd.DataFrame([input_data])
         prediction = model.predict(input_df)[0]
-        st.success(f"🏡 Predicted House Price: **${prediction:,.2f}**")
+        st.success(f"Predicted House Price: **${prediction:,.2f}**")
 
 else:
-    st.warning("⚠️ Please select at least one feature to continue.")
+    st.warning("Please select at least one feature to continue.")
 
 
 # --- Footer ---
