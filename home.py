@@ -11,6 +11,11 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # -----------------------------------------------------
 st.set_page_config(page_title="USA Housing Linear Regression", page_icon="🏠", layout="wide")
 
+st.header('Lotus-Gold Consulting')
+st.markdown('---')
+st.image('./3.jpg')
+st.markdown('---')
+
 st.title("🏠 USA Housing Price Prediction using Linear Regression")
 st.write("""
 Explore the **USA Housing dataset**, train a **Linear Regression model**, 
@@ -148,4 +153,7 @@ else:
     st.warning("⚠️ Please select at least one feature to continue.")
 
 
+# --- Footer ---
+st.markdown("---")
+st.caption("Copyright: Lotus-Gold Consulting 2025")
 
